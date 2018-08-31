@@ -16,7 +16,7 @@ Class1: (2  4)t, (3  3)t
 
 Class2: (6 12)t, (8  10)t
 
-Starting with an initial parameter vector [0 1 1]t,
+Starting with an initial parameter vector [0 1 1]t
     1.	Illustrate 4 iterations of perceptron – formulation 1.
     1.	Illustrate 4 iterations of perceptron – formulation 2.
     1.	Illustrate 4 iterations of relaxation with b = 1.
