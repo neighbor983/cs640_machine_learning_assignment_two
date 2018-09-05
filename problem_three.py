@@ -41,43 +41,57 @@ for item in class_1:
 for item in class_2:
     sample_set.append(item);
 
-print(sample_set);
-
 newDot = initial_theta.T.dot(sample_set[0]);
 
-print(newDot);
+#c 
+theta = np.matrix([0, 1, 1])
+X_3 = np.matrix([-1, -6, -12]).T
+b = 1;
 
-#d
-#First Iteration
+print(.1 * (theta * X_3 - b) / (np.linalg.norm(X_3) ** 2) * X_3);
+
+
+
+
+# d. 
 b = np.matrix([1, 1, 1, 1]).T
-X = np.matrix([[1,2,4],[1,3,3],[-1,-6,-12],[-1,-8,-10]]);
-theta = inv(X.T * X) * X.T * b;
+X = np.matrix([[1,2,4],[1,3,3],[-1,-6,-12],[-1,8,-10]]);
 
-e_k = np.subtract(X * theta, b);
-b_new = np.add(b, .1 * (e_k + abs(e_k)));
-theta_new = inv( X.T * X ) * X.T * b_new
+alpha =.1;
+theta = np.matrix([0, 1, 1]).T;
 
-print(b_new);
-print(theta_new);
-#Second Iteration
+#First Iteration
+Xtheta =  X * theta;
+error = Xtheta - b;
+addError = error + abs(error);
+b_new = b + alpha * addError;
+theta_new = inv(X.T * X) * X.T * b_new;
+
+#Second iteration
 b = b_new;
-theta = inv(X.T * X) * X.T * b;
-e_k = np.subtract(X * theta, b);
-b_new = np.add(b, .1 * (e_k + abs(e_k)));
-theta_new = inv( X.T * X ) * X.T * b_new;
-print(b_new);
-print(theta_new);
+theta = theta_new;
+Xtheta = X * theta;
+error = Xtheta - b;
+addError = error + abs(error);
+b_new = b + alpha * addError;
+theta_new = inv(X.T * X) * X.T * b_new;
 
 #Third Iteration
 b = b_new;
-theta = inv(X.T * X) * X.T * b;
-e_k = np.subtract(X * theta, b);
-b_new = np.add(b, .1 * (e_k + abs(e_k)));
-theta_new = inv( X.T * X ) * X.T * b_new;
+theta = theta_new;
+Xtheta = X * theta;
+error = Xtheta - b;
+addError = error + abs(error);
+b_new = b + alpha * addError;
+theta_new = inv(X.T * X) * X.T * b_new;
 
 #Fourth Iteration
 b = b_new;
-theta = inv(X.T * X) * X.T * b;
-e_k = np.subtract(X * theta, b);
-b_new = np.add(b, .1 * (e_k + abs(e_k)));
-theta_new = inv( X.T * X ) * X.T * b_new;
+theta = theta_new;
+Xtheta = X * theta;
+error = Xtheta - b;
+addError = error + abs(error);
+b_new = b + alpha * addError;
+theta_new = inv(X.T * X) * X.T * b_new;
+
+
