@@ -24,6 +24,7 @@ Define a cost function J(θ ) = (1/2) ∑i = 1 to N (|θtXi| - θtXi) (summation
 Case 1: Each class is separable from the rest by a single linear decision function.Now, we can find K decision functions d1(X), d2(X), . . ., dK(X) such that di(X) is greater than zero for all patterns that belong to Classi and less than or equal to zero for patterns of other classes. Case 2: Classes are pairwise linearly separable.Now we need to find K(K-1)/2 decision functions.  A new pattern X is assigned to Classi if dij(X) is greater than zero for all j ≠ i. Case 3: It may be possible to find d1(X), d2(X), . . ., dK(X) such that if X belongs to Classi then di(X) is greater than dj(X) for all j ≠ i. The training algorithm changes slightly for this case.
 '''
 import numpy as np;
+from numpy.linalg import inv;
 
 initial_theta  = np.array([0, 1, 1]);
 class_1 = [ np.array([2, 4]), np.array([3,  3]) ];
@@ -46,4 +47,37 @@ newDot = initial_theta.T.dot(sample_set[0]);
 
 print(newDot);
 
+#d
+#First Iteration
+b = np.matrix([1, 1, 1, 1]).T
+X = np.matrix([[1,2,4],[1,3,3],[-1,-6,-12],[-1,-8,-10]]);
+theta = inv(X.T * X) * X.T * b;
 
+e_k = np.subtract(X * theta, b);
+b_new = np.add(b, .1 * (e_k + abs(e_k)));
+theta_new = inv( X.T * X ) * X.T * b_new
+
+print(b_new);
+print(theta_new);
+#Second Iteration
+b = b_new;
+theta = inv(X.T * X) * X.T * b;
+e_k = np.subtract(X * theta, b);
+b_new = np.add(b, .1 * (e_k + abs(e_k)));
+theta_new = inv( X.T * X ) * X.T * b_new;
+print(b_new);
+print(theta_new);
+
+#Third Iteration
+b = b_new;
+theta = inv(X.T * X) * X.T * b;
+e_k = np.subtract(X * theta, b);
+b_new = np.add(b, .1 * (e_k + abs(e_k)));
+theta_new = inv( X.T * X ) * X.T * b_new;
+
+#Fourth Iteration
+b = b_new;
+theta = inv(X.T * X) * X.T * b;
+e_k = np.subtract(X * theta, b);
+b_new = np.add(b, .1 * (e_k + abs(e_k)));
+theta_new = inv( X.T * X ) * X.T * b_new;
