@@ -221,19 +221,7 @@ Fourth Iteration
 θ(k+1) = [-0.0572381 0.60468334  0.36503083]
 
 [-0.0572381 0.60468334  0.36503083] * [-1 -8 -10]t = -8.43053693
-θ(k+1) = 
-
-Algorithm: 
-Step 1: Select an initial θ(1) and b randomly. 
-Step 2: 	During iteration k, present X(k) and compute θt(k) X(k).
-Step 3: 	If θt(k) X(k) > b
-		θ(k+1) = θ(k)
-	else 
-		θ(k+1) = θ(k) - α [(θt(k) X(k) -b) /||X(k)||2]X(k)
-	k = k+1
-Step 4: If you have gone through N iterations without changing θ stop.  Otherwise, go to Step 3.
-
-
+θ(k+1) = [-0.06295358  0.55895952  0.30787606]
 
 d. Illustrate 4 iterations of Ho-Kashyap algorithm with b = [1 1 1 1]t. 
 alpha = .1
