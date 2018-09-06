@@ -1,0 +1,48 @@
+2. You are given training patterns {X1,, .  .  .  .  , XN}  from two classes. 
+All patterns are augmented by 1 and patterns of Class-2 are multiplied by -1 as 
+discussed in the class. 
+
+The cost function J(θ) = ∑I = 1 to N (1/Xi tXi) [|θtXi|2-|θtXi|θtXi] attains 
+its only minimum value of zero if θtXi  > 0 for all Xi. 
+
+Develop a machine learning algorithm based on gradient descent approach and the 
+above cost function to learn θ from training data to separate the two classes. 
+
+
+The cost function J has only one minimum (zero) and the minimum is attained when 
+θtX > 0 for all X in the training set. Therefore, solving the set of 
+inequalities is equivalent to minimizing J.  
+
+Grad[J] with respect to θ = 0 if θtX > 0, and –X if θtX ≤ 0. Therefore, 
+perceptron algorithm that learns the decision rule from training set 
+{X1,.  .  .  .  , XN}  is as below.
+
+Step 1:
+    Select θ(1) randomly.  
+    
+Step 2:	
+    changeFlag = False;
+    During iteration k, present X(k)
+        If θt(k) X(k) > 0 then
+		    θ(k+1) = θ(k)
+        else
+		    θ(k+1) = θ(k) + αX(k)
+		    changeFlag = True;
+	k = (k + 1) mod N
+
+Step 3: 
+    If(changeFlag !== False);
+        Go to Step 2
+    else
+        All classes properlly classified
+        
+pseudocode:
+theta = np.ones(number_of_attributes );
+changeFlag = True;
+while(changeFlag):
+    changeFlag = False;
+    for data in training_patterns:
+        if(theta.T * data < 0):
+            theta = theta + α*data;
+            changeFlag = True;
+            
