@@ -44,13 +44,48 @@ for item in class_2:
 newDot = initial_theta.T.dot(sample_set[0]);
 
 #c 
-theta = np.matrix([0, 1, 1])
-X_3 = np.matrix([-1, -6, -12]).T
+alpha = .1;
+theta = np.matrix([0, 1, 1]);
+X_1 = np.matrix([1, 2, 4]).T;
+X_2 = np.matrix([1, 3, 3]).T;
+X_3 = np.matrix([-1, -6, -12]).T;
+X_4 = np.matrix([-1, -8, -10]).T;
 b = 1;
+X3_Distance = np.linalg.norm(X_3) ** 2;
+X4_Distance = np.linalg.norm(X_4) ** 2;
+diff = -.1 * ((theta * X_3 - b) / (X3_Distance)).item() * X_3;
+theta_new = np.matrix([(theta.item(0,0) + diff.item(0,0)), (theta.item(0,1) + diff.item(1,0)), (theta.item(0,2) + diff.item(2,0))]);
+#print(.1 * (theta * X_3 - b) / (np.linalg.norm(X_3) ** 2) * X_3);
 
-print(.1 * (theta * X_3 - b) / (np.linalg.norm(X_3) ** 2) * X_3);
+theta = theta_new;
+diff = -.1 * ((theta * X_4 - b) / (X4_Distance)).item() * X_4;
+theta_new =  np.matrix([(theta.item(0,0) + diff.item(0,0)), (theta.item(0,1) + diff.item(1,0)), (theta.item(0,2) + diff.item(2,0))]);
 
 
+theta = theta_new;
+diff = -.1 * ((theta * X_3 - b) / (X3_Distance)).item() * X_3;
+theta_new =  np.matrix([(theta.item(0,0) + diff.item(0,0)), (theta.item(0,1) + diff.item(1,0)), (theta.item(0,2) + diff.item(2,0))]);
+
+theta = theta_new;
+diff = -.1 * ((theta * X_4 - b) / (X4_Distance)).item() * X_4;
+theta_new =  np.matrix([(theta.item(0,0) + diff.item(0,0)), (theta.item(0,1) + diff.item(1,0)), (theta.item(0,2) + diff.item(2,0))]);
+
+theta = theta_new;
+diff = -.1 * ((theta * X_3 - b) / (X3_Distance)).item() * X_3;
+theta_new =  np.matrix([(theta.item(0,0) + diff.item(0,0)), (theta.item(0,1) + diff.item(1,0)), (theta.item(0,2) + diff.item(2,0))]);
+
+theta = theta_new;
+diff = -.1 * ((theta * X_4 - b) / (X4_Distance)).item() * X_4;
+theta_new =  np.matrix([(theta.item(0,0) + diff.item(0,0)), (theta.item(0,1) + diff.item(1,0)), (theta.item(0,2) + diff.item(2,0))]);
+
+theta = theta_new;
+diff = -.1 * ((theta * X_3 - b) / (X3_Distance)).item() * X_3;
+theta_new =  np.matrix([(theta.item(0,0) + diff.item(0,0)), (theta.item(0,1) + diff.item(1,0)), (theta.item(0,2) + diff.item(2,0))]);
+
+theta = theta_new;
+diff = -.1 * ((theta * X_4 - b) / (X4_Distance)).item() * X_4;
+theta_new =  np.matrix([(theta.item(0,0) + diff.item(0,0)), (theta.item(0,1) + diff.item(1,0)), (theta.item(0,2) + diff.item(2,0))]);
+print(theta_new);
 
 
 # d. 
